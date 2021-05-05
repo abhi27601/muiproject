@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
@@ -120,7 +120,7 @@ export default function Header(props) {
 
   const matches = useMediaQuery(theme.breakpoints.down('md')); // it ll consider the higher breakpoint as its end
 
-  const menuOptions = [
+  const menuOptions = useMemo([
     {
       name: 'Services',
       Link: '/services',
@@ -145,9 +145,9 @@ export default function Header(props) {
       activeIndex: 1,
       selectedIndex: 3,
     },
-  ];
+  ],null);
 
-  const routes = [
+  const routes = useMemo([
     { name: 'Home', link: '/', activeIndex: 0 },
     {
       name: 'Services',
@@ -160,7 +160,7 @@ export default function Header(props) {
     { name: 'The Revolution', link: '/revolution', activeIndex: 2 },
     { name: 'About Us', link: '/about', activeIndex: 3 },
     { name: 'Contact Us', link: '/contact', activeIndex: 4 },
-  ];
+  ],null);
 
   useEffect(() => {
     // if (window.location.pathname === '/' && value !== 0) {
